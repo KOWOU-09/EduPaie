@@ -97,6 +97,20 @@ PAIEMENT
 - **Ajouter/Modifier élève** : formulaire avec validation
 - **Enregistrer paiement** : montant, date, mode, avec validation solde
 
+### Captures d'écran
+
+**Tableau de bord** — vue d'ensemble (indicateurs + liste filtrable par statut) :
+
+![Tableau de bord](capture_ecran/tableau_de_bord.PNG)
+
+**Liste des élèves** — recherche, filtre par classe et actions :
+
+![Liste des élèves](capture_ecran/eleves.PNG)
+
+**Fiche élève** — informations, solde et historique des paiements :
+
+![Fiche élève](capture_ecran/fiche.PNG)
+
 ## 6. Génération des reçus
 
 **Format** : PDF lisible et professionnel
