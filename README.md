@@ -34,10 +34,10 @@ python principal.py
 python principal.py
 ```
 
-L'interface a **3 onglets** :
-1. **📊 Tableau de bord** : stats globales (nb élèves, encaissé, restant, non soldés)
-2. **👥 Élèves** : ajouter/modifier/supprimer, enregistrer paiements
-3. **📋 Fiche élève** : infos + historique complet des paiements
+L'interface a **3 onglets** (avec des icônes Material dans la barre latérale) :
+1. **Tableau de bord** : stats globales (nb élèves, encaissé, restant, non soldés)
+2. **Élèves** : ajouter/modifier/supprimer, enregistrer paiements
+3. **Fiche élève** : infos + historique complet des paiements
 
 ### Créer des données test
 
@@ -62,8 +62,12 @@ Génère 16 élèves avec des paiements variés (soldés, partiels, non payés).
 
 ```
 EduPaie/
-├── métier/                    Règles métier (ServiceEleve, ServicePaiement)
+├── metiers/                   Règles métier (ServiceEleve, ServicePaiement, modeles, config)
 ├── donnees/                   Base de données SQLite + repositories
+├── sql/                       Script de création des tables (schema.sql)
+├── mcd/                       Diagramme MCD de la base
+├── capture_ecran/             Captures d'écran de l'application
+├── ressources/                Base de données edupaie.db (jeu de test)
 ├── principal.py               Interface PySide6 (3 pages)
 ├── recus.py                   Génération PDF des reçus
 ├── donnees_test.py            Script créant 16 élèves de test
@@ -72,7 +76,7 @@ EduPaie/
 ├── README.md                  Ce fichier
 ├── DOCUMENTATION.md           Documentation technique
 ├── MANUEL_UTILISATEUR.md      Manuel pour l'utilisateur
-└── ressources/                Fichier base.db
+└── GUIDE_INSTALLATION.md      Guide d'installation de l'exécutable
 ```
 
 ---
