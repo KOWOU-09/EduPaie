@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 *.db
+!ressources/edupaie.db
 .DS_Store
 .vscode/
 build/
