@@ -625,11 +625,28 @@ class FenetrePrincipale(QtWidgets.QMainWindow):
 
                 donnees = self.service_paiement.donnees_recu(
                     self.service_paiement.obtenir(paiement.id))
-                msg = f"Reçu n° {donnees['numero_recu']}\n"
+
+                # Générer le reçu PDF automatiquement
+                from recus import generer_recu_pdf
+                import os
+                chemin_pdf = f"recu_{donnees['numero_recu']}.pdf"
+                pdf_ok = generer_recu_pdf(donnees, chemin_pdf)
+
+                msg = "Paiement enregistré !\n\n"
+                msg += f"Reçu n° {donnees['numero_recu']}\n"
                 msg += f"Élève : {donnees['eleve_nom']} {donnees['eleve_prenom']}\n"
                 msg += f"Montant : {formater_montant(donnees['montant'])}\n"
                 msg += f"Solde après : {formater_montant(donnees['solde_apres'])}"
+                if pdf_ok:
+                    msg += "\n\nLe reçu PDF va s'ouvrir (Ctrl+P pour imprimer)."
                 QtWidgets.QMessageBox.information(self, "Paiement enregistré", msg)
+
+                # Ouvrir le reçu PDF (pour impression immédiate)
+                if pdf_ok:
+                    try:
+                        os.startfile(chemin_pdf)
+                    except Exception:
+                        pass
             except Exception as ex:
                 QtWidgets.QMessageBox.critical(self, "Erreur", str(ex))
 
